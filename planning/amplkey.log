@@ -1,0 +1,5 @@
+2023/11/29 21:19:24 Reading E:\AMPL\ampl.lic
+2023/11/29 21:19:24 Failed to load config cache: open E:\MATLAB 2019a\bin\parkingMotionPlanning/amplkey.cfg: The system cannot find the file specified.
+2023/11/29 21:19:25 Cached configuration from https://ampl.com/amplkey/v0.1/amplkey.config.json at E:\MATLAB 2019a\bin\parkingMotionPlanning/amplkey.cfg
+2023/11/29 21:19:26 Obtained license from https://portal.ampl.com/v1/amplkey/renew
+2023/11/29 21:19:26 Wrote 1901 bytes atomically to E:\AMPL\ampl.lic

@@ -1,0 +1,35 @@
+function[x0,y0,theta0,v0,a0,phy0,w0]=ResampleCollocationPoints(x,y,theta,v,a,phy,w,time)
+    global params_
+    nfe=round(time/params_.utility.traj_dt_for_resample);
+    x0=[];
+    y0=[];
+    theta0=[];
+    v0=[];
+    a0=[];
+    phy0=[];
+    w0=[];
+    for ii=2:length(x)
+        temp=linspace(x(ii-1),x(ii),nfe);x0=[x0,temp(1:(nfe-1))];
+        temp=linspace(y(ii-1),y(ii),nfe);y0=[y0,temp(1:(nfe-1))];
+        temp=linspace(theta(ii-1),theta(ii),nfe);theta0=[theta0,temp(1:(nfe-1))];
+        temp=linspace(v(ii-1),v(ii),nfe);v0=[v0,temp(1:(nfe-1))];
+        temp=linspace(a(ii-1),a(ii),nfe);a0=[a0,temp(1:(nfe-1))];
+        temp=linspace(phy(ii-1),phy(ii),nfe);phy0=[phy0,temp(1:(nfe-1))];
+        temp=linspace(w(ii-1),w(ii),nfe);w0=[w0,temp(1:(nfe-1))];
+    end
+    x0=[x0,x(end)];
+    y0=[y0,y(end)];
+    theta0=[theta0,theta(end)];
+    v0=[v0,v(end)];
+    a0=[a0,a(end)];
+    phy0=[phy0,phy(end)];
+    w0=[w0,w(end)];
+    ind_list=round(linspace(1,length(x0),nfe));
+    x0=x0(ind_list);
+    y0=y0(ind_list);
+    theta0=theta0(ind_list);
+    v0=v0(ind_list);
+    a0=a0(ind_list);
+    phy0=phy0(ind_list);
+    w0=w0(ind_list);
+end
