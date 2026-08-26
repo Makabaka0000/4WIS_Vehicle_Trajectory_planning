@@ -130,32 +130,6 @@ The complete method also achieved a path length of **36.121 m**, traversal time 
 
 For complete comparisons, density-wise results, and ablation studies, please refer to the paper.
 
-## 🛠️ Installation
-
-The framework contains a Python/PyTorch learning component and a MATLAB trajectory-planning component.
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY>.git
-cd <YOUR_REPOSITORY>
-```
-
-### 2. Create the Python environment
-
-```bash
-conda create -n 4wis-planning python=3.8.20 -y
-conda activate 4wis-planning
-pip install torch==2.4.1 torchvision==0.19.1
-pip install -r requirements.txt
-```
-
-### 3. Configure MATLAB and IPOPT
-
-Install MATLAB R2019a or a compatible release, then configure IPOPT and the MA27 linear solver according to their official installation instructions. Add the released planning code and solver interface to the MATLAB path.
-
-> **TODO before release:** document the required MATLAB toolboxes, IPOPT interface, operating-system-specific solver setup, and any additional Python packages in `requirements.txt`.
-
 ## 🗂️ Dataset Preparation
 
 Each MCN sample should include:
@@ -199,44 +173,6 @@ A recommended demo should expose the following options:
 - probabilistic RFDC activation;
 - OCP trajectory refinement and result visualization.
 
-## 📈 Evaluation
-
-```matlab
-% TODO: replace with the released evaluation entry point
-run('<EVALUATION_SCRIPT>.m');
-```
-
-To reproduce the paper, report at least:
-
-- planning success rate;
-- path length;
-- traversal time;
-- maximum and average jerk;
-- computation time;
-- cumulative risk potential;
-- minimum distance to obstacles.
-
-Use fixed and documented random seeds for all comparative experiments.
-
-## 📁 Recommended Repository Structure
-
-The following layout is suggested for the public release:
-
-```text
-.
-├── mcn/                    # MCN architecture, training, and inference
-├── planner/                # 4WIS hybrid A* and guided-point generation
-├── optimization/           # OCP, RFDC, and obstacle constraints
-├── data/                   # Dataset instructions or sample data
-├── configs/                # Reproducible experiment configurations
-├── scripts/                # Training, demo, and evaluation entry points
-├── results/                # Example figures and quantitative outputs
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
-
-Adapt this section to the final source-code layout before release.
 
 ## 📝 Citation
 
