@@ -194,14 +194,3 @@ If this work is useful in your research, please cite:
 ## 📄 License
 
 Add a software license before the public release and describe any separate terms that apply to data, pretrained weights, or third-party solvers. The paper PDF remains subject to IEEE copyright and is not covered by the source-code license.
-
-## 📬 Contact
-
-For questions about the paper or implementation, please contact:
-
-- **Yang Li** (corresponding author): [lyxc56@gmail.com](mailto:lyxc56@gmail.com)
-- **Jingjia Teng**: [tengjingjia@foxmail.com](mailto:tengjingjia@foxmail.com)
-
-## 🙏 Acknowledgments
-
-This work was supported by the National Natural Science Foundation of China under Grant **52302493**.
