@@ -78,58 +78,6 @@ This hierarchy allows the planner to exploit obstacle attributes instead of cons
 
 Dynamic-obstacle uncertainty is represented through a probabilistic driving risk field. Risk-aware driving corridors provide linear collision constraints for the OCP. The optimization stage uses the initial 4WIS hybrid A* path as a warm start and enforces vehicle kinematics, collision avoidance, boundary conditions, and speed limits over drive-over obstacles.
 
-## 🧪 Experimental Setup
-
-### MCN Training
-
-- Planning-task samples: **2,880**
-- Data split: **8:1:1** for training, validation, and testing
-- Training epochs: **200**
-- Random seeds: **5**
-- Optimizer: **Adam**
-- Learning rate: **1e-4**
-- Batch size: **32**
-- Python: **3.8.20**
-- PyTorch: **2.4.1**
-- torchvision: **0.19.1**
-- Training platform: **Ubuntu 20.04.6 LTS**
-- GPU: **NVIDIA GeForce RTX 3090, 24 GB**
-
-### Trajectory Planning
-
-- Workspace size: **40 m x 40 m**
-- Obstacle-density levels: **low (5)**, **medium (7)**, and **high (9)**
-- Obstacle geometry: random convex polygons with **4–7 vertices**
-- Obstacle area: uniformly sampled from **5–50 m²**
-- Initial/goal heading: uniformly sampled from **[-π, π]**
-- MATLAB: **R2019a**
-- Nonlinear solver: **IPOPT**, using **MA27** as the linear solver
-- Evaluation CPU: **Intel Core i7-7700HQ**
-
-The reported runtime corresponds to an offline research-validation pipeline rather than onboard real-time deployment.
-
-## 📊 Main Results
-
-Across 150 comparative scenarios, the complete method achieved the best reported success rate and the lowest cumulative risk potential among the evaluated methods.
-
-| Method | Success rate | Cumulative risk potential |
-| --- | ---: | ---: |
-| Hybrid A* | 55.33% | 7.590 |
-| FTHA | 70.67% | 7.284 |
-| **Ours** | **85.33%** | **4.119** |
-
-The complete method also achieved a path length of **36.121 m**, traversal time of **32.545 s**, maximum jerk of **0.408 m/s³**, average jerk of **0.278 m/s³**, and computation time of **26.803 s**.
-
-### Component-Level Findings
-
-- Adding GPs increased success from **80% to 90%** and reduced mean path length from **29.482 m to 21.570 m** on 50 tasks.
-- MCN-based adaptive GP selection reduced computation time from **46.848 s to 38.166 s**, an improvement of approximately **18.5%**.
-- Crossable-obstacle handling increased success from **70% to 92%**.
-- Drive-over-obstacle handling increased success from **76% to 90%**.
-- The probabilistic RFDC reduced cumulative risk potential from **10.141 to 3.235** and increased the minimum obstacle distance from **0.884 m to 1.591 m**.
-
-For complete comparisons, density-wise results, and ablation studies, please refer to the paper.
-
 ## 🗂️ Dataset Preparation
 
 Each MCN sample should include:
